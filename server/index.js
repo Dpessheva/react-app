@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const feedRoutes = require('./routes/feed');
-const authRoutes = require('/routes/auth');
+const authRoutes = require('./routes/auth');
 require('./database/database')();
 const port = 9999;
 const app = express();
