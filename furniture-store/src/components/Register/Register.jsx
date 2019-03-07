@@ -10,15 +10,16 @@ class Register extends Component {
             email: '',
             password: '',
         }
-        this.handleSubmiit = this.handleSubmiit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
 
     }
-    handleSubmiit(event){
+    handleSubmit(event){
         event.preventDefault();
         this.props.handleRegister(this.state);
     }
     handleChange(event){
+        console.log(`${event.target.name} => ${event.target.value}`)
         const name = event.target.name;
         const value = event.target.value;
         this.setState({
