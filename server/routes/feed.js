@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const feedController = require('../controllers/feed');
+const isAuth = require('../middleware/is.auth');
 
-router.post('/street/create', feedController.createStreet);
-router.post('/house/create', feedController.createHouse);
-router.get('/street/all', feedController.getStreets);
+router.post('/furniture/create', feedController.createFurniture);
+router.get('/furnitutes', feedController.getFurnitures);
 
 module.exports = router;
