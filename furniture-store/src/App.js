@@ -6,9 +6,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 // import Create from './Create/Create';
+import Navbar from './components/Navbar/Navbar';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import './App.css';
+import Footer from './components/Footer/Footer';
 
 class App extends Component {
   constructor(props) {
@@ -97,7 +99,7 @@ class App extends Component {
       <div className="App">
         <Router history={this.state.history}>
           <Fragment>
-            {/* <Navbar handleLogout={this.handleLogout}{...this.state} /> */}
+             <Navbar handleLogout={this.handleLogout}{...this.state} /> }
             <ToastContainer autoClose={2500} hideProgressBar={true} closeButton={<span>&#120;</span>} />
             <Switch>
               {/* <Route path='/' exact render={(props) => <Home {...props}{...this.state} />} /> */}
@@ -106,6 +108,7 @@ class App extends Component {
               {/* <Route path='/create' exact render={(props) => <Create {...props} handleCreateMovie={this.handleCreateMovie} />} /> */}
               <Route render={() => <h1>Page not found.</h1>} />
             </Switch>
+            <Footer/>
           </Fragment>
         </Router>
       </div>
