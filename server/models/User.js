@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const encryption = require('../util/encryption');
+const encryption = require('../utilities/encryption');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
