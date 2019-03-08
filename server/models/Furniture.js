@@ -1,12 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const REQUIRED_VALIDATION_MESSAGE = '{PATH} is required'
+
 const furnitureSchema = new Schema({
-  title: {
-    type: String,
-    required: true
-  },
-  type: {
+   type: {
     type: String,
     required: true
   },
@@ -18,6 +16,10 @@ const furnitureSchema = new Schema({
     type: String,
     required: true
   },
+  likes: [{
+    type: mongoose.Schema.Types.String
+  }],
+
   price: {
     type: Number,
     required: true
