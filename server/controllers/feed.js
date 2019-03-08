@@ -1,12 +1,12 @@
 const Furniture = require('../models/Furniture');
 
 module.exports = {
-  getFurnitures: (req, res) => {
+  getFurnitures: (req, res,next) => {
     Furniture.find()
-      .then((mebels) => {
+      .then((furnitures) => {
         res
           .status(200)
-          .json({ message: 'Fetched furnitures successfully.', mebels });
+          .json({ message: 'Fetched furnitures successfully.', furnitures });
       })
       .catch((error) => {
         if (!error.statusCode) {
@@ -15,14 +15,14 @@ module.exports = {
         next(error);
       });
   },
-  createFurniture: (req, res) => {
+  createFurniture: (req, res,next) => {
     const mebelsObj = req.body;
-    Movie.create(mebelsObj)
-    .then((mebel) => {
+    Furniture.create(mebelsObj)
+    .then((furniture) => {
       res.status(200)
         .json({
           message: 'Furniture created successfully!',
-          mebel
+          furniture
         })
     })
     .catch((error) => {

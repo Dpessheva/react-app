@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import './Navbar.css';
 
 
 class Navbar extends Component {
@@ -14,7 +15,7 @@ class Navbar extends Component {
     render() {
         return (
             <header>
-                <NavLink to="/" className="logo">The best Furniture store</NavLink>
+                <NavLink to="/" className="logo">The Furniture store</NavLink>
                 <div className="header-right">
                     <NavLink to="/">Home</NavLink>
                     {
