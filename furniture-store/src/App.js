@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import createBrowserHistory from 'history/createBrowserHistory';
 
- import Create from './components/Create/Create';
+import Create from './components/Create/Create';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
@@ -19,29 +19,29 @@ class App extends Component {
     this.state = {
       username: null,
       isAdmin: false,
-      furnitures: [],
+      products: [],
       history: createBrowserHistory(),
     }
-    this.handleCreateFurniture = this.handleCreateFurniture.bind(this);
+    this.handleCreateProduct = this.handleCreateProduct.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.handleRegister = this.handleRegister.bind(this);
-  
     this.handleLogout = this.handleLogout.bind(this);
   }
-  handleCreateFurniture(furniture) {
-    fetch('http://localhost:9999/feed/furniture/create', {
+  
+  handleCreateProduct(product) {
+    fetch('http://localhost:9999/feed/products/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(furniture)
+      body: JSON.stringify(product)
     }).then(responsive => responsive.json())
       .then(body => {
-        if (!body.furniture) {
+        if (!body.product) {
           toast.error(body.message);
         } else {
           this.setState(state => ({
-            furnitures: [...state.furnitures, body.furnitures]
+            products: [...state.products, body.product]
           }))
           this.state.history.push('/')
         }

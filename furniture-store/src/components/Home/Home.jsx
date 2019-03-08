@@ -6,13 +6,13 @@ class Home extends Component {
     constructor(props){
         super(props);
         this.state = {
-            furnitures: this.props.furnitures,
+            products: this.props.products,
             description:null,
         }
         this.handleWiewDescription = this.handleWiewDescription.bind(this);
     }
     componentDidMount(){
-        fetch('http://localhost:9999/feed/furnitures')
+        fetch('http://localhost:9999/feed/products')
         .then(response => response.json())
         .then(body => {
             if (body.furnitures) {
@@ -37,10 +37,10 @@ class Home extends Component {
                 }
                 <ul className="furnitures">
                 {
-                  this.state.furnitures.map((x, i) => (
+                  this.state.products.map((x, i) => (
                     <li className="furniture" key={x._id}>
-                      <h2>{x.title}</h2>
-                      <img src={x.imageUrl} alt={x.title} />
+                      <h2>{x.type}</h2>
+                      <img src={x.imageUrl} alt={x.type} />
                       {
                         this.props.username ?
                           <span>

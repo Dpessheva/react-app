@@ -5,11 +5,10 @@ class Create extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title:'',
-            type: '',
-            description: '',
-            imageUrl: '',
-            price: '',
+          type: '',
+          description: '',
+          imageUrl: '',
+          price: '',
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,25 +22,23 @@ class Create extends Component {
     }
     handleSubmit(event) {
         event.preventDefault();
-        this.props.handleCreateFurniture(this.state);
+        //this.props.handleCreateProduct(this.state);
     }
 
     render() {
         return (
             <div className="Create">
-                <h1>Create new furniture offer </h1>
+                <h1>Create product </h1>
                 <form onSubmit={this.handleSubmit}>
-                    <label for="title">Title</label>
-                    <input type="text" name="title" value={this.state.title} placeholder="Title" onChange={this.handleChange} />
-                    <label for="type">Type</label>
+                    <label htmlFor="type">Type</label>
                     <input type="text" name="type" value={this.state.type} placeholder="Text" onChange={this.handleChange} />
-                    <label for="description">Description</label>
+                    <label htmlFor="description">Description</label>
                     <input type="text" name="description" value={this.state.description} placeholder="Text" onChange={this.handleChange} />
-                    <label for="imageUrl">imageUrl</label>
+                    <label htmlFor="imageUrl">imageUrl</label>
                     <input type="text" name="imageUrl" value={this.state.imageUrl}
                         placeholder="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRzg6o0KjhufKFU1iBNr1zuyi0YDNgCUw4Ky5SNATZDVKaIUkiAA" onChange={this.handleChange} />
-                    <label for="price">Price</label>
-                    <input type="text" name="price" value={this.state.price} placeholder="0,00" onChange={this.handleChange} />
+                    <label htmlFor="price">Price</label>
+                    <input type="text" name="price" value={this.state.price} placeholder="0.00 euro" onChange={this.handleChange} />
                     <input type="submit" value="Create" />
                 </form>
             </div>
