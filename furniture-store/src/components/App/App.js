@@ -1,17 +1,16 @@
 import React, { Component, Fragment } from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import createBrowserHistory from 'history/createBrowserHistory';
-
-import Create from './components/Create/Create';
-import Navbar from './components/Navbar/Navbar';
-import Home from './components/Home/Home';
-import Login from './components/Login/Login';
-import Register from './components/Register/Register';
+import Create from '../Create/Create';
+import Navbar from '../common/Navbar/Navbar';
+import Home from '../Home/Home';
+import Login from '../Login/Login';
+import Register from '../Register/Register';
+import Footer from '../common/Footer/Footer';
+import NotFound from '../NotFound/NotFound';
 import './App.css';
-import Footer from './components/Footer/Footer';
 
 class App extends Component {
   constructor(props) {
@@ -20,7 +19,7 @@ class App extends Component {
       username: null,
       isAdmin: false,
       products: [],
-      history: createBrowserHistory(),
+      
     }
     this.handleCreateProduct = this.handleCreateProduct.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
@@ -93,6 +92,28 @@ class App extends Component {
     this.state.history.push('/login');
     toast.success('Successfuly logout!');
   }
+  componentWillMount() {
+    // check if there is a logged in user using the sessionStorage (if so, update the state, otherwise set the user to null)
+    const localUserName = localStorage.getItem('username');
+    if (localUserName) {
+        this.setState({
+            username:localUserName
+        })
+    }
+
+    //  fetch all the games
+    this.fetchProducts();
+}
+fetchProducts(){
+  fetch('http://localhost:9999/feed/products')
+  .then(res=> res.json())
+  .then(body => this.setState({
+      products:body.products,
+      
+    }))
+    
+  
+}
 
   render() {
     return (
@@ -106,7 +127,7 @@ class App extends Component {
               <Route path='/register' exact render={(props) => <Register {...props} handleRegister={this.handleRegister} />} />
               <Route path='/login' exact render={(props) => <Login {...props} handleLogin={this.handleLogin} />} />
               <Route path='/create' exact render={(props) => <Create {...props} handleCreateFurnitute={this.handleCreateFurnitute} />} />
-              <Route render={() => <h1>Page not found.</h1>} />
+              <Route component={NotFound} />
             </Switch>
             <Footer/>
           </Fragment>

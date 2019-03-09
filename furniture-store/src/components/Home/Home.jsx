@@ -7,7 +7,7 @@ class Home extends Component {
         super(props);
         this.state = {
             products: this.props.products,
-            description:null,
+            
         }
         this.handleWiewDescription = this.handleWiewDescription.bind(this);
     }
@@ -15,8 +15,8 @@ class Home extends Component {
         fetch('http://localhost:9999/feed/products')
         .then(response => response.json())
         .then(body => {
-            if (body.furnitures) {
-                this.setState({movies:body.furnitures});
+            if (body.products) {
+                this.setState({products:body.products});
             }
         });
     }

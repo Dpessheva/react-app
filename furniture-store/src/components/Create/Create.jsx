@@ -22,7 +22,7 @@ class Create extends Component {
     }
     handleSubmit(event) {
         event.preventDefault();
-        //this.props.handleCreateProduct(this.state);
+       this.props.handleCreateProduct(this.state);
     }
 
     render() {
