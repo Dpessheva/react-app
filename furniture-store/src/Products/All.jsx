@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import ProductService from '../../services/product';
-import './All.css';
+
 
 class AllProducts extends Component {
     constructor(props) {
