@@ -1,9 +1,11 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import {UserProvider, defaultUserState} from './components/contexts/authentication-context'; 
-import AuthorizeRoute from './components/authorized-rout';
+import AnonymousRoute from './components/AnonymousRoute';
+import AuthenticatedRoute from './components/AuthenticatedRoute';
+
+import {
+  defaultAuthenticationContext, 
+  AuthenticationProvider } from './components/contexts/authentication-context';
 
 
 import Home from './components/Home/Home';
