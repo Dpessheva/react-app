@@ -1,8 +1,8 @@
-const Furniture = require('../models/Product');
+const Product = require('../models/Product');
 
 module.exports = {
   getProducts: (req, res) => {
-    Furniture.find()
+    Product.find()
       .then((products) => {
         res
           .status(200)
@@ -17,7 +17,7 @@ module.exports = {
   },
   createProduct: (req, res) => {
     const productsObj = req.body;
-    Furniture.create(productsObj)
+    Product.create(productsObj)
     .then((product) => {
       res.status(200)
         .json({
