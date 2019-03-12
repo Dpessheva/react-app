@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment} from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AnonymousRoute from './components/AnonymousRoute';
 import AuthenticatedRoute from './components/AuthenticatedRoute';
 
 import {
   defaultAuthenticationContext, 
-  AuthenticationProvider } from './components/contexts/authentication-context';
+  AuthenticationProvider } 
+  from './components/contexts/authentication-context';
 
 
 import Home from './components/Home/Home';
