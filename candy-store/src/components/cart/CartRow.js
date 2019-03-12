@@ -22,7 +22,7 @@ class CartRow extends Component {
   }
 
   render () {
-    const {image, name, ingredients, price} = this.props.product
+    const {image, name,price} = this.props.product
     const subtotal = this.props.product.quantity * price
     return (
       <tr>
@@ -31,7 +31,6 @@ class CartRow extends Component {
             <div className='col-sm-4 hidden-xs'><img src={image} alt='...' className='cart-image' /></div>
             <div className='col-sm-8'>
               <h4 className='nomargin'>{name}</h4>
-              <p>{ingredients.join(', ')}</p>
             </div>
           </div>
         </td>
