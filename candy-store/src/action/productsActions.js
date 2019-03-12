@@ -1,5 +1,5 @@
 import {FETCH_DATA_SUCCESS, CREATE_PRODUCT_SUCCESS, CREATE_PRODUCT_ERROR, EDIT_PRODUCT_SUCCESS, EDIT_PRODUCT_ERROR,
-    CREATE_REVIEW_SUCCESS, CREATE_REVIEW_ERROR, LIKE_PRODUCT, UNLIKE_PRODUCT, DELETE_PIZZA, DELETE_PRODUCT} from './actionTypes'
+    CREATE_REVIEW_SUCCESS, CREATE_REVIEW_ERROR, LIKE_PRODUCT, UNLIKE_PRODUCT,  DELETE_PRODUCT} from './actionTypes'
   import {beginAjax, endAjax} from './ajaxStatusActions'
   import {fetchProducts, createProduct, editProduct, createReview, likeProduct, unlikeProduct, deleteProduct} from '../api/remote'
   import errorHandler from '../utils/errorHandler'
