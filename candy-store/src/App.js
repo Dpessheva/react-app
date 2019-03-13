@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Navbar from './components/common/Navbar'
-import Footer from './components/common/Footer'
+import Footer from './components/common/Footer/Footer'
 import Preloader from './components/common/Preloader/Preloader'
 import HomePage from './components/home/HomePage'
 import RegisterPage from './components/auth/RegisterPage'

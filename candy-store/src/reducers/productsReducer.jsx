@@ -1,13 +1,13 @@
-import {FETCH_DATA_SUCCESS, CREATE_PIZZA_SUCCESS, CREATE_PIZZA_ERROR, EDIT_PIZZA_SUCCESS, EDIT_PIZZA_ERROR,
-    REDIRECTED, CREATE_REVIEW_SUCCESS, CREATE_REVIEW_ERROR, LIKE_PRODUCT, UNLIKE_PRODUCT, DELETE_PIZZA} from '../actions/actionTypes'
+import {FETCH_DATA_SUCCESS, CREATE_PRODUCT_SUCCESS, CREATE_PRODUCT_ERROR, EDIT_PRODUCT_SUCCESS, EDIT_PRODUCT_ERROR,
+    REDIRECTED, CREATE_REVIEW_SUCCESS, CREATE_REVIEW_ERROR, LIKE_PRODUCT, UNLIKE_PRODUCT, DELETE_PRODUCT} from '../actions/actionTypes'
   
   function productsReducer (state = [], action) {
     switch (action.type) {
       case FETCH_DATA_SUCCESS:
         return reconcile(state, action.data)
-      case CREATE_PIZZA_SUCCESS:
+      case CREATE_PRODUCT_SUCCESS:
         return reconcile(state, [action.data])
-      case EDIT_PIZZA_SUCCESS:
+      case EDIT_PRODUCT_SUCCESS:
         return reconcile(state, [action.data])
       case CREATE_REVIEW_SUCCESS:
         return reconcile(state, [action.data])
@@ -15,7 +15,7 @@ import {FETCH_DATA_SUCCESS, CREATE_PIZZA_SUCCESS, CREATE_PIZZA_ERROR, EDIT_PIZZA
         return reconcile(state, [action.data])
       case UNLIKE_PRODUCT:
         return reconcile(state, [action.data])
-      case DELETE_PIZZA:
+      case DELETE_PRODUCT:
         return state.filter(e => e._id !== action.id)
       default:
         return state
@@ -24,7 +24,7 @@ import {FETCH_DATA_SUCCESS, CREATE_PIZZA_SUCCESS, CREATE_PIZZA_ERROR, EDIT_PIZZA
   
   function createProductReducer (state = {success: false}, action) {
     switch (action.type) {
-      case CREATE_PIZZA_SUCCESS:
+      case CREATE_PRODUCT_SUCCESS:
         return Object.assign({}, state, {success: true})
       case REDIRECTED:
         return Object.assign({}, state, {success: false})
@@ -35,9 +35,9 @@ import {FETCH_DATA_SUCCESS, CREATE_PIZZA_SUCCESS, CREATE_PIZZA_ERROR, EDIT_PIZZA
   
   function createProductErrorReducer (state = {hasError: false, message: ''}, action) {
     switch (action.type) {
-      case CREATE_PIZZA_ERROR:
+      case CREATE_PRODUCT_ERROR:
         return Object.assign({}, state, {hasError: true, message: action.error})
-      case CREATE_PIZZA_SUCCESS:
+      case CREATE_PRODUCT_SUCCESS:
         return Object.assign({}, state, {hasError: false, message: ''})
       default:
         return state
@@ -46,7 +46,7 @@ import {FETCH_DATA_SUCCESS, CREATE_PIZZA_SUCCESS, CREATE_PIZZA_ERROR, EDIT_PIZZA
   
   function editProductReducer (state = {success: false}, action) {
     switch (action.type) {
-      case EDIT_PIZZA_SUCCESS:
+      case EDIT_PRODUCT_SUCCESS:
         return Object.assign({}, state, {success: true})
       case REDIRECTED:
         return Object.assign({}, state, {success: false})
@@ -57,9 +57,9 @@ import {FETCH_DATA_SUCCESS, CREATE_PIZZA_SUCCESS, CREATE_PIZZA_ERROR, EDIT_PIZZA
   
   function editProductErrorReducer (state = {hasError: false, message: ''}, action) {
     switch (action.type) {
-      case EDIT_PIZZA_ERROR:
+      case EDIT_PRODUCT_ERROR:
         return Object.assign({}, state, {hasError: true, message: action.error})
-      case EDIT_PIZZA_SUCCESS:
+      case EDIT_PRODUCT_SUCCESS:
         return Object.assign({}, state, {hasError: false, message: ''})
       default:
         return state

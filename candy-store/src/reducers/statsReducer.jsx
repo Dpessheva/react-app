@@ -1,4 +1,4 @@
-import {FETCH_STATS_SUCCESS, REGISTER_SUCCESS, CREATE_PIZZA_SUCCESS, DELETE_PIZZA} from '../actions/actionTypes'
+import {FETCH_STATS_SUCCESS, REGISTER_SUCCESS, CREATE_PRODUCT_SUCCESS, DELETE_PRODUCT} from '../actions/actionTypes'
 
 function statsReducer (state = {usersCount: 0, productsCount: 0}, action) {
   switch (action.type) {
@@ -12,12 +12,12 @@ function statsReducer (state = {usersCount: 0, productsCount: 0}, action) {
         usersCount: state.usersCount + 1,
         productsCount: state.productsCount
       }
-    case CREATE_PIZZA_SUCCESS:
+    case CREATE_PRODUCT_SUCCESS:
       return {
         usersCount: state.usersCount,
         productsCount: state.productsCount + 1
       }
-    case DELETE_PIZZA:
+    case DELETE_PRODUCT:
       return {
         usersCount: state.usersCount,
         productsCount: state.productsCount - 1
