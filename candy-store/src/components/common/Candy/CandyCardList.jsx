@@ -11,9 +11,8 @@ const CandyCardList = (props) => {
           key={p._id}
           id={p._id}
           name={p.name}
-          image={p.image}
-          description={p.description}
-          weight={p.weight} />))
+          imageUrls={p.imageUrls}
+          description={p.description}/>))
 
     let cardDeck = <div key={i} className='card-deck space-top'>{candyCards}</div>
     candyCardList.push(cardDeck)
