@@ -23,6 +23,15 @@ class RegisterPage extends React.Component {
     this.onSubmit = this.onSubmit.bind(this)
   }
 
+  onChange (e) {
+    this.setState({[e.target.name]: e.target.value})
+  }
+
+  onSubmit (e) {
+    e.preventDefault()
+    if (!registerValidator(this.state.username, this.state.email, this.state.password, this.state.confirmPassword)) return
+    this.props.register(this.state.username, this.state.email, this.state.password)
+  }
   componentWillMount () {
     if (Auth.isUserAuthenticated()) {
       this.props.history.push('/')
@@ -40,17 +49,6 @@ class RegisterPage extends React.Component {
       this.props.history.push('/')
     }
   }
-
-  onChange (e) {
-    this.setState({[e.target.name]: e.target.value})
-  }
-
-  onSubmit (e) {
-    e.preventDefault()
-    if (!registerValidator(this.state.username, this.state.email, this.state.password, this.state.confirmPassword)) return
-    this.props.register(this.state.username, this.state.email, this.state.password)
-  }
-
   render () {
     let validObj = registerValidationFunc(
       this.state.email,
