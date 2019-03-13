@@ -1,3 +1,4 @@
+// eslint-disable-next-line jsx-a11y/href-no-hash
 import React, {Component} from 'react'
 import Input from '../common/Input'
 import loginValidator from '../../utils/loginValidator'
@@ -20,13 +21,13 @@ class LoginPage extends Component {
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
-
+  
   componentWillMount () {
     if (Auth.isUserAuthenticated()) {
       this.props.history.push('/')
     }
   }
-
+  
   componentWillReceiveProps (nextProps) {
     if (nextProps.loginError.hasError) {
       toastr.error(nextProps.loginError.message)
