@@ -12,7 +12,6 @@ const Navbar = (props) => {
             <div className='col-md-12'>
               <Link className='navbar-brand' to='/'>Candy Store</Link>
               <NavLink className='nav-link' activeClassName='active' exact to='/'>Home</NavLink>
-              <NavLink className='nav-link' to='/menu'>Menu</NavLink>
               {loggedIn && !isAdmin && <NavLink className='nav-link' to='/orders'>My Orders</NavLink>}
               {isAdmin && <NavLink className='nav-link' to='/admin/create'>Create New Candy</NavLink>}
               {isAdmin && <NavLink className='nav-link' to='/admin/orders/pending'>Pending Orders</NavLink>}

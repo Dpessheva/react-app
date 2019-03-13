@@ -37,8 +37,7 @@ class HomePage extends Component {
             <h1 className='jumbotron-heading'>Welcome to Candy store{headingText} !</h1>
             {!isAuthenticated && <p className='lead text-muted'>Register</p>}
             <p>
-              <Link to='/menu' className='btn btn-primary'>Go To Menu</Link>
-              <Link to={secondLinkPath} className='btn btn-secondary'>{secondLinkName}</Link>
+             <Link to={secondLinkPath} className='btn btn-secondary'>{secondLinkName}</Link>
             </p>
           </div>
         </section>

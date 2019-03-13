@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('../models/User');
-const Candy = require('../models/Product');
+const Product = require('../models/Product');
 
 mongoose.Promise = global.Promise;
 
@@ -16,7 +16,7 @@ module.exports = (settings) => {
       console.log('MongoDB ready!')
   
       User.seedAdminUser()
-      Pizza.seedPizzas()
+      Product.seedProduct()
     })
   
     db.on('error', err => console.log(`Database error: ${err}`))
