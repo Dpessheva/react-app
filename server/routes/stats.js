@@ -1,10 +1,10 @@
 const express = require('express')
-const Pizza = require('../models/Product')
+const Product = require('../models/Product')
 const User = require('../models/User')
 
 const router = new express.Router()
 
-router.get('/', (req, res) => {
+router.get('/stats', (req, res) => {
   User
     .count({})
     .then(users => {
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
             users
           })
         })
-    })
+    }).catch(console.log(err));
 })
 
 module.exports = router

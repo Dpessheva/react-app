@@ -1,5 +1,5 @@
 import Auth from '../utils/auth'
-const host = 'http://localhost:5000/'
+const host = 'http://localhost:3000/'
 
 async function register (username, email, password) {
   const res = await window.fetch(host + 'auth/signup', {

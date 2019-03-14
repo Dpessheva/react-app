@@ -1,4 +1,4 @@
-// eslint-disable-next-line jsx-a11y/href-no-hash
+
 import React, {Component} from 'react'
 import Input from '../common/Input'
 import loginValidator from '../../utils/loginValidator'
