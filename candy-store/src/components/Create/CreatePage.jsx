@@ -14,9 +14,8 @@ class CreatePage extends Component {
     this.state = {
       name: '',
       description: '',
-      weight: '',
       price: '',
-      image: ''
+      imageUrls: ''
     }
 
     this.onChange = this.onChange.bind(this)
@@ -29,7 +28,7 @@ class CreatePage extends Component {
     } else if (nextProps.createProductSuccess) {
       this.props.redirect()
       toastr.success('Candy created successfully')
-      this.props.history.push('/menu')
+      this.props.history.push('/')
     }
   }
 
@@ -40,18 +39,17 @@ class CreatePage extends Component {
   onSubmit (e) {
     e.preventDefault()
     if (!createProductValidator(this.state.name, 
-      this.state.description, this.state.image, this.state.weight, this.state.price)) {
+      this.state.description, this.state.imageUrls, this.state.price)) {
       return
     }
-    this.props.createProduct(this.state.name,this.state.description, this.state.image, this.state.weight, this.state.price)
+    this.props.createProduct(this.state.name,this.state.description, this.state.imageUrls, this.state.price)
   }
 
   render () {
     let validObj = createProductValidationFunc(
       this.state.name,
       this.state.description,
-      this.state.image,
-      this.state.weight,
+      this.state.imageUrls,
       this.state.price
     )
 
@@ -85,23 +83,15 @@ class CreatePage extends Component {
                 type='text'
                 name='image'
                 label='Image URL'
-                placeholder='Enter pizza image URL'
-                value={this.state.image}
+                placeholder='Enter candy image URL'
+                value={this.state.imageUrls}
                 onChange={this.onChange}
                 valid={validObj.validImage} />
               <Input
                 type='number'
-                name='weight'
-                label='Weight'
-                placeholder='Enter pizza weight'
-                value={this.state.weight}
-                onChange={this.onChange}
-                valid={validObj.validWeight} />
-              <Input
-                type='number'
                 name='price'
                 label='Price'
-                placeholder='Enter pizza price'
+                placeholder='Enter  price'
                 value={this.state.price}
                 onChange={this.onChange}
                 valid={validObj.validPrice} />
@@ -123,8 +113,8 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    createProduct: (name, description, image, weight, price) => {
-      dispatch(createProductAction({name, description, image, weight, price}))
+    createProduct: (name, description, imageUrls,  price) => {
+      dispatch(createProductAction({name, description, imageUrls,price}))
     },
     redirect: () => dispatch(redirectAction())
   }

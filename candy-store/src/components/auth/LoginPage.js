@@ -1,8 +1,7 @@
-
 import React, {Component} from 'react'
-import Input from '../common/Input'
 import loginValidator from '../../utils/loginValidator'
 import toastr from 'toastr'
+import Input from '../common/Input';
 import Auth from '../../utils/auth'
 import {loginValidationFunc} from '../../utils/formValidator'
 import {loginAction, redirectAction} from '../../actions/authActions'
@@ -21,13 +20,13 @@ class LoginPage extends Component {
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
-  
+
   componentWillMount () {
     if (Auth.isUserAuthenticated()) {
       this.props.history.push('/')
     }
   }
-  
+
   componentWillReceiveProps (nextProps) {
     if (nextProps.loginError.hasError) {
       toastr.error(nextProps.loginError.message)
@@ -55,15 +54,9 @@ class LoginPage extends Component {
     )
 
     return (
-      <div className='container'>
-        <div className='row space-top'>
-          <div className='col-md-12'>
-            <h1>Login</h1>
-          </div>
-        </div>
+      <div className='form-wrapper'>
+        <h1>Login</h1>
         <form onSubmit={this.onSubmit}>
-          <div className='row space-top'>
-            <div className='col-md-4'>
               <Input
                 type='text'
                 name='email'
@@ -80,9 +73,7 @@ class LoginPage extends Component {
                 value={this.state.password}
                 onChange={this.onChange}
                 valid={validObj.validPassword} />
-              <input type='submit' className='btn btn-primary' value='Login' />
-            </div>
-          </div>
+              <input type='submit' value='Login' />
         </form>
       </div>
     )

@@ -22,6 +22,7 @@ class RegisterPage extends React.Component {
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
+
   componentWillMount () {
     if (Auth.isUserAuthenticated()) {
       this.props.history.push('/')
@@ -39,6 +40,7 @@ class RegisterPage extends React.Component {
       this.props.history.push('/')
     }
   }
+
   onChange (e) {
     this.setState({[e.target.name]: e.target.value})
   }
@@ -48,7 +50,7 @@ class RegisterPage extends React.Component {
     if (!registerValidator(this.state.username, this.state.email, this.state.password, this.state.confirmPassword)) return
     this.props.register(this.state.username, this.state.email, this.state.password)
   }
- 
+
   render () {
     let validObj = registerValidationFunc(
       this.state.email,
@@ -58,15 +60,9 @@ class RegisterPage extends React.Component {
     )
 
     return (
-      <div className='container'>
-        <div className='row space-top'>
-          <div className='col-md-12'>
-            <h1>Register</h1>
-          </div>
-        </div>
+      <div className='form-wrapper'>
+        <h1>Register</h1>
         <form onSubmit={this.onSubmit}>
-          <div className='row space-top'>
-            <div className='col-md-4'>
               <Input
                 type='text'
                 name='email'
@@ -99,9 +95,7 @@ class RegisterPage extends React.Component {
                 value={this.state.confirmPassword}
                 onChange={this.onChange}
                 valid={validObj.validConfirmPassword} />
-              <input type='submit' className='btn btn-primary' value='Register' />
-            </div>
-          </div>
+              <input type='submit' value='Register' />
         </form>
       </div>
     )
