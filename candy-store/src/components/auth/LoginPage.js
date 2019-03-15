@@ -21,6 +21,16 @@ class LoginPage extends Component {
     this.onSubmit = this.onSubmit.bind(this)
   }
 
+ 
+  onChange (e) {
+    this.setState({[e.target.name]: e.target.value})
+  }
+
+  onSubmit (e) {
+    e.preventDefault()
+    if (!loginValidator(this.state.email, this.state.password)) return
+    this.props.login(this.state.email, this.state.password)
+  }
   componentWillMount () {
     if (Auth.isUserAuthenticated()) {
       this.props.history.push('/')
@@ -36,17 +46,6 @@ class LoginPage extends Component {
       this.props.history.push('/')
     }
   }
-
-  onChange (e) {
-    this.setState({[e.target.name]: e.target.value})
-  }
-
-  onSubmit (e) {
-    e.preventDefault()
-    if (!loginValidator(this.state.email, this.state.password)) return
-    this.props.login(this.state.email, this.state.password)
-  }
-
   render () {
     let validObj = loginValidationFunc(
       this.state.email,

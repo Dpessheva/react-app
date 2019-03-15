@@ -15,9 +15,8 @@ class EditPage extends Component {
     this.state = {
       name: '',
       description: '',
-      weight: '',
       price: '',
-      image: ''
+      imageUrls: ''
     }
 
     this.onChange = this.onChange.bind(this)
@@ -31,9 +30,8 @@ class EditPage extends Component {
       this.setState({
         name: product.name,
         description: product.description,
-        weight: product.weight,
         price: product.price.toFixed(2),
-        image: product.image
+        imageUrls: product.imageUrls
       })
     } else {
       this.props.fetchProducts()
@@ -46,7 +44,7 @@ class EditPage extends Component {
     } else if (nextProps.editProductSuccess) {
       this.props.redirect()
       toastr.success('Product edited successfully')
-      this.props.history.push('/menu')
+      this.props.history.push('/')
     } else {
       const productId = this.props.match.params.id
       let product = this.props.products.find(p => p._id === productId)
@@ -54,9 +52,8 @@ class EditPage extends Component {
         this.setState({
           name: product.name,
           description: product.description,
-          weight: product.weight,
           price: product.price.toFixed(2),
-          image: product.image
+          imageUrls: product.imageUrls
         })
       }
     }
@@ -68,10 +65,10 @@ class EditPage extends Component {
 
   onSubmit (e) {
     e.preventDefault()
-    if (!createProductValidator(this.state.name,this.state.description, this.state.image, this.state.weight, this.state.price)) {
+    if (!createProductValidator(this.state.name,this.state.description, this.state.imageUrls, this.state.price)) {
       return
     }
-    this.props.editProduct(this.props.match.params.id, this.state.name,this.state.description, this.state.image, this.state.weight, this.state.price)
+    this.props.editProduct(this.props.match.params.id, this.state.name,this.state.description, this.state.imageUrls, this.state.price)
   }
 
   render () {
@@ -86,8 +83,7 @@ class EditPage extends Component {
     let validObj = createProductValidationFunc(
       this.state.name,
       this.state.description,
-      this.state.image,
-      this.state.weight,
+      this.state.imageUrls,
       this.state.price
     )
 
@@ -122,17 +118,9 @@ class EditPage extends Component {
                 name='image'
                 label='Image URL'
                 placeholder='Enter candy image URL'
-                value={this.state.image}
+                value={this.state.imageUrls}
                 onChange={this.onChange}
                 valid={validObj.validImage} />
-              <Input
-                type='number'
-                name='weight'
-                label='Weight'
-                placeholder='Enter candy weight'
-                value={this.state.weight}
-                onChange={this.onChange}
-                valid={validObj.validWeight} />
               <Input
                 type='number'
                 name='price'
@@ -160,8 +148,8 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    editProduct: (id, name, ingredients, description, image, weight, price) => {
-      dispatch(editProductAction(id, {name, ingredients, description, image, weight, price}))
+    editProduct: (id, name, description, imageUrls, price) => {
+      dispatch(editProductAction(id, {name, description, imageUrls, price}))
     },
     redirect: () => dispatch(redirectAction()),
     fetchProducts: () => dispatch(fetchProductsAction())
