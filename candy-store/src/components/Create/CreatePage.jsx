@@ -42,7 +42,8 @@ class CreatePage extends Component {
       this.state.description, this.state.imageUrls, this.state.price)) {
       return
     }
-    this.props.createProduct(this.state.name,this.state.description, this.state.imageUrls, this.state.price)
+    this.props.createProduct(this.state.name,this.state.description,
+       this.state.imageUrls, this.state.price)
   }
 
   render () {
@@ -67,7 +68,7 @@ class CreatePage extends Component {
                 type='text'
                 name='name'
                 label='Name'
-                placeholder='Enter candy name'
+                placeholder='Enter  name'
                 value={this.state.name}
                 onChange={this.onChange}
                 valid={validObj.validName} />
@@ -75,18 +76,18 @@ class CreatePage extends Component {
                 type='text'
                 name='description'
                 label='Description'
-                placeholder='Enter pizza description'
+                placeholder='Enter description'
                 value={this.state.description}
                 onChange={this.onChange}
                 valid={validObj.validDescription} />
               <Input
                 type='text'
-                name='image'
+                name='imageUrls'
                 label='Image URL'
-                placeholder='Enter candy image URL'
+                placeholder='Enter image URL'
                 value={this.state.imageUrls}
                 onChange={this.onChange}
-                valid={validObj.validImage} />
+                valid={validObj.validImageUrls} />
               <Input
                 type='number'
                 name='price'
