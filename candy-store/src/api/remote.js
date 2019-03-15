@@ -34,12 +34,12 @@ async function login (email, password) {
 
 async function fetchStats () {
   const res = await window.fetch(host + 'stats')
-  return res.json()
+  return res.text()
 }
 
 async function fetchProducts () {
   const res = await window.fetch(host + 'product/all')
-  return res.json()
+  return res.text()
 }
 
 async function createProduct (data) {
@@ -72,7 +72,7 @@ async function deleteProduct (id) {
   const res = await window.fetch(host + `product/delete/${id}`, {
     method: 'DELETE',
     headers: {
-      'Authorization': 'bearer ' + Auth.getToken()
+        'Authorization': 'bearer ' + Auth.getToken()
     }
   })
 
@@ -139,6 +139,7 @@ async function fetchUserOrders () {
 async function fetchPendingOrders () {
   const res = await window.fetch(host + 'orders/pending', {
     headers: {
+      'Content-Type': 'application/json',
       'Authorization': 'bearer ' + Auth.getToken()
     }
   })
