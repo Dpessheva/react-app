@@ -44,7 +44,7 @@ class EditPage extends Component {
     } else if (nextProps.editProductSuccess) {
       this.props.redirect()
       toastr.success('Product edited successfully')
-      this.props.history.push('/')
+      this.props.history.push('/store')
     } else {
       const productId = this.props.match.params.id
       let product = this.props.products.find(p => p._id === productId)
@@ -101,7 +101,7 @@ class EditPage extends Component {
                 type='text'
                 name='name'
                 label='Name'
-                placeholder='Enter candy name'
+                placeholder='Enter name'
                 value={this.state.name}
                 onChange={this.onChange}
                 valid={validObj.validName} />
@@ -109,7 +109,7 @@ class EditPage extends Component {
                 type='text'
                 name='description'
                 label='Description'
-                placeholder='Enter candy description'
+                placeholder='Enter  description'
                 value={this.state.description}
                 onChange={this.onChange}
                 valid={validObj.validDescription} />
@@ -117,7 +117,7 @@ class EditPage extends Component {
                 type='text'
                 name='image'
                 label='Image URL'
-                placeholder='Enter candy image URL'
+                placeholder='Enter image URL'
                 value={this.state.imageUrls}
                 onChange={this.onChange}
                 valid={validObj.validImage} />
@@ -125,7 +125,7 @@ class EditPage extends Component {
                 type='number'
                 name='price'
                 label='Price'
-                placeholder='Enter candy price'
+                placeholder='Enter  price'
                 value={this.state.price}
                 onChange={this.onChange}
                 valid={validObj.validPrice} />

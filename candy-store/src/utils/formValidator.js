@@ -80,7 +80,7 @@ const registerValidationFunc = (
     }
   }
   
-  const createProductValidationFunc = (name, description, image, weight, price) => {
+  const createProductValidationFunc = (name, description, imageUrls, price) => {
     let validName = (() => {
       if (
         name.length > 2 &&
@@ -104,24 +104,13 @@ const registerValidationFunc = (
   
     let validImage = (() => {
       if (
-        (image.startsWith('https://') || image.startsWith('http://')) && image.length >= 14
+        (imageUrls.startsWith('https://') || imageUrls.startsWith('http://')) && imageUrls.length >= 14
       ) {
         return true
       }
       return false
     })()
-  
-    let validWeight = (() => {
-      if (
-        weight >= 250 &&
-        weight <= 800 &&
-        weight !== ''
-      ) {
-        return true
-      }
-      return false
-    })()
-  
+    
     let validPrice = (() => {
       if (
         price > 0 &&
@@ -136,7 +125,6 @@ const registerValidationFunc = (
       validName,
       validDescription,
       validImage,
-      validWeight,
       validPrice
     }
   }

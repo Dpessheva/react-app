@@ -7,6 +7,7 @@ import RegisterPage from './components/auth/RegisterPage'
 import LoginPage from './components/auth/LoginPage'
 import CreatePage from './components/create/CreatePage'
 import EditPage from './components/edit/EditPage'
+import StorePage from './components/store/StorePage'
 import DetailsPage from './components/details/DetailsPage'
 import CartPage from './components/cart/CartPage'
 import OrdersPage from './components/orders/OrdersPage'
@@ -70,6 +71,8 @@ class App extends Component {
         <main>
           <Switch>
             <Route exact path='/' component={HomePage} />
+            <Route exact path='/store' component={StorePage}/>
+            <Route exact path='/store/:page' component={StorePage}/>
             <Route path='/register' component={RegisterPage} />
             <Route path='/login' component={LoginPage} />
             <AdminRoute path='/admin/create' component={CreatePage} />

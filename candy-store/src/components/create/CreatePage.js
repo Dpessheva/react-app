@@ -28,7 +28,7 @@ class CreatePage extends Component {
     } else if (nextProps.createProductSuccess) {
       this.props.redirect()
       toastr.success('Candy created successfully')
-      this.props.history.push('/')
+      this.props.history.push('/store')
     }
   }
 
@@ -68,7 +68,7 @@ class CreatePage extends Component {
                 type='text'
                 name='name'
                 label='Name'
-                placeholder='Enter  name'
+                placeholder='Enter name'
                 value={this.state.name}
                 onChange={this.onChange}
                 valid={validObj.validName} />

@@ -10,7 +10,7 @@ const Paginator = (props) => {
     pages.push(
       (
         <li key={i} className={`page-item${i === current ? ' active' : ''}`}>
-          <Link className='page-link' to={`/menu/${i}`}>{i}</Link>
+          <Link className='page-link' to={`/store/${i}`}>{i}</Link>
         </li>
       )
     )
@@ -21,11 +21,11 @@ const Paginator = (props) => {
       <div className='col-md-12'>
         <ul className='pagination'>
           <li className={`page-item${current === 1 ? ' disabled' : ''}`}>
-            <Link className='page-link' to={`/menu/${current - 1}`}>«</Link>
+            <Link className='page-link' to={`/store/${current - 1}`}>«</Link>
           </li>
           {pages}
           <li className={`page-item${current === pagesCount ? ' disabled' : ''}`}>
-            <Link className='page-link' to={`/menu/${current + 1}`}>»</Link>
+            <Link className='page-link' to={`/store/${current + 1}`}>»</Link>
           </li>
         </ul>
       </div>

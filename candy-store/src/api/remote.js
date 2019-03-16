@@ -34,12 +34,12 @@ async function login (email, password) {
 
 async function fetchStats () {
   const res = await window.fetch(host + 'stats')
-  return res.text()
+  return JSON.stringify(res)
 }
 
 async function fetchProducts () {
   const res = await window.fetch(host + 'product/all')
-  return res.text()
+  return res.json()
 }
 
 async function createProduct (data) {
@@ -139,7 +139,7 @@ async function fetchUserOrders () {
 async function fetchPendingOrders () {
   const res = await window.fetch(host + 'orders/pending', {
     headers: {
-      'Content-Type': 'application/json',
+  
       'Authorization': 'bearer ' + Auth.getToken()
     }
   })
