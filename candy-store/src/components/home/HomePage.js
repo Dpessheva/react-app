@@ -30,23 +30,21 @@ class HomePage extends Component {
       .sort((a, b) => b.likes.length - a.likes.length)
       .slice(startIndex, pageSize)
 
-    return (
-      <div className='container'>
-        <section className='jumbotron text-center'>
-          <div className='container'>
-            <h1 className='jumbotron-heading'>Welcome to Candy store{headingText} !</h1>
-            {!isAuthenticated && <p className='lead text-muted'>The best candies are here. Register now!</p>}
-            <p>
-            <Link to='/store'>Go To Store</Link>
-            <Link to={secondLinkPath} className='btn btn-secondary'>{secondLinkName}</Link>
-            </p>
-          </div>
-        </section>
-        <h2 className='font-italic text-muted text-center'>Top Rated</h2>
-        <CandyCardList products={candyCards} />
-      </div>
-    )
-  }
+      return (
+        <div className='welcome-wrapper'>
+            <div className='welcome'>
+              <h1>Welcome to the CandyWarehouse{headingText} !</h1>
+              {!isAuthenticated && <p>Your favourite candies are here. Register now and choose from our store.</p>}
+              <p>
+                <Link to='/store'>Go To Store</Link>
+                <Link to={secondLinkPath}>{secondLinkName}</Link>
+              </p>
+            </div>
+          <h2>Top Rated</h2>
+          <CandyCardList products={candyCards} />
+        </div>
+      )
+    }
 }
 
 function mapStateToProps (state) {

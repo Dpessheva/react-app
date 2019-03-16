@@ -6,10 +6,7 @@ const Navbar = (props) => {
 
   return (
     <header>
-      <nav className='navbar navbar-dark bg-warning'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-md-12'>
+      <nav className='navbar-menu'>
               <Link className='navbar-brand' to='/'>Candy Store</Link>
               <NavLink className='nav-link' activeClassName='active' exact to='/'>Home</NavLink>
               {loggedIn && !isAdmin && <NavLink className='nav-link' to='/orders'>My Orders</NavLink>}
@@ -21,9 +18,6 @@ const Navbar = (props) => {
               {!loggedIn && <NavLink className='nav-link' to='/register'>Register</NavLink>}
               {isAdmin && <span style={{color: 'blue'}}>{products} products in database</span>}
               {isAdmin && <span style={{color: 'blue'}}> | {users} users registered</span>}
-            </div>
-          </div>
-        </div>
       </nav>
     </header>
   )

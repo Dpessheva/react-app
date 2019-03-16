@@ -55,16 +55,10 @@ class CreatePage extends Component {
     )
 
     return (
-      <div className='container'>
-        <div className='row space-top'>
-          <div className='col-md-12'>
-            <h1>Create New Candy</h1>
-          </div>
-        </div>
+      <div className='form-wrapper'>
+       <h1>Create New Candy</h1>
         <form onSubmit={this.onSubmit}>
-          <div className='row space-top'>
-            <div className='col-md-4'>
-              <Input
+         <Input
                 type='text'
                 name='name'
                 label='Name'
@@ -87,7 +81,7 @@ class CreatePage extends Component {
                 placeholder='Enter image URL'
                 value={this.state.imageUrls}
                 onChange={this.onChange}
-                valid={validObj.validImageUrls} />
+                valid={validObj.validImage} />
               <Input
                 type='number'
                 name='price'
@@ -96,9 +90,7 @@ class CreatePage extends Component {
                 value={this.state.price}
                 onChange={this.onChange}
                 valid={validObj.validPrice} />
-              <input type='submit' className='btn btn-primary' value='Create' />
-            </div>
-          </div>
+              <input type='submit' value='Create' />
         </form>
       </div>
     )

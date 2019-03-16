@@ -6,7 +6,7 @@ const Footer = ()=> {
     return (
 
        <footer id="footer" className="page-footer mt-4">
-       © Book Library {new Date().getFullYear()}
+       © CandyWarehouse {new Date().getFullYear()}
        </footer>
 
     );
