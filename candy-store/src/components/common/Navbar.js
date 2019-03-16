@@ -2,7 +2,7 @@ import React from 'react'
 import {Link, NavLink} from 'react-router-dom'
 
 const Navbar = (props) => {
-  const {loggedIn, isAdmin, logout, users, products} = props
+  const {loggedIn, isAdmin, logout} = props
 
   return (
     <header>
