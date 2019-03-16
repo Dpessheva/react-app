@@ -28,7 +28,7 @@ class CreatePage extends Component {
     } else if (nextProps.createProductSuccess) {
       this.props.redirect()
       toastr.success('Candy created successfully')
-      this.props.history.push('/store')
+      this.props.history.push('/')
     }
   }
 
@@ -43,7 +43,8 @@ class CreatePage extends Component {
       return
     }
     this.props.createProduct(this.state.name,this.state.description,
-       this.state.imageUrls, this.state.price)
+       this.state.imageUrls, this.state.price);
+  
   }
 
   render () {
@@ -52,7 +53,8 @@ class CreatePage extends Component {
       this.state.description,
       this.state.imageUrls,
       this.state.price
-    )
+      )
+     
 
     return (
       <div className='form-wrapper'>
