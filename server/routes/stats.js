@@ -4,7 +4,7 @@ const User = require('../models/User')
 
 const router = new express.Router()
 
-router.get('/stats', (req, res) => {
+router.get('/', (req, res) => {
   User
     .count({})
     .then(users => {

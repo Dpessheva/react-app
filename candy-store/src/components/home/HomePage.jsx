@@ -35,9 +35,9 @@ class HomePage extends Component {
         <section className='jumbotron text-center'>
           <div className='container'>
             <h1 className='jumbotron-heading'>Welcome to Candy store{headingText} !</h1>
-            {!isAuthenticated && <p className='lead text-muted'>Register</p>}
+            {!isAuthenticated && <p className='lead text-muted'>The best candies are here. Register now!</p>}
             <p>
-             <Link to={secondLinkPath} className='btn btn-secondary'>{secondLinkName}</Link>
+            <Link to={secondLinkPath} className='btn btn-secondary'>{secondLinkName}</Link>
             </p>
           </div>
         </section>

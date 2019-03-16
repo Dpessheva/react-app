@@ -4,7 +4,7 @@ const Product = require('../models/Product')
 
 const router = new express.Router()
 
-function validateProdcutCreateForm (payload) {
+function validateProductCreateForm (payload) {
   const errors = {}
   let isFormValid = true
   let message = ''
@@ -44,7 +44,7 @@ function validateProdcutCreateForm (payload) {
 router.post('/create', authCheck, (req, res) => {
   const productObj = req.body
   if (req.user.roles.indexOf('Admin') > -1) {
-    const validationResult = validateProdcutCreateForm(productObj)
+    const validationResult = validateProductCreateForm(productObj)
     if (!validationResult.success) {
       return res.status(200).json({
         success: false,
@@ -85,7 +85,7 @@ router.post('/edit/:id', authCheck, (req, res) => {
   if (req.user.roles.indexOf('Admin') > -1) {
     const productId = req.params.id
     const productObj = req.body
-    const validationResult = validateProdcutCreateForm(productObj)
+    const validationResult = validateProductCreateForm(productObj)
     if (!validationResult.success) {
       return res.status(200).json({
         success: false,

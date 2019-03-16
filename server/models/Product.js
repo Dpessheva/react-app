@@ -45,6 +45,7 @@ module.exports.seedProduct = () => {
 
     const productsSeed = [
       {
+       // key:_id,
         name: 'Jelly Beans',
         description: 'It’s hard to smile when you’re puckering. Somehow these sour gourmet jelly beans make you want to do both. They come in an assortment of sour fruit flavors that’ll make your face scrunch up. But they’re also made with real fruit juice that provides a boost of Vitamin C for your immune system, and that should make you smile -- even if you’re still puckering',
         price: 9.90,
@@ -53,6 +54,7 @@ module.exports.seedProduct = () => {
         reviews: []
       },
       {
+        //key:_id,
         name: 'Sour Jelly Beans Assortment',
         description: 'It’s hard to smile when you’re puckering. Somehow these sour gourmet jelly beans make you want to do both. They come in an assortment of sour fruit flavors that’ll make your face scrunch up. But they’re also made with real fruit juice that provides a boost of Vitamin C for your immune system, and that should make you smile -- even if you’re still puckering.',
         price: 7.90,
@@ -61,6 +63,7 @@ module.exports.seedProduct = () => {
         reviews: []
       },
       {
+        //key:_id,
         name: 'Jelly Belly Color Combo - Pink and Purple Blend',
         description: 'There are approximately 400 pieces per pound. Box contains 4 pounds of Pink and Purple Blend Jelly Belly Color Combo Jelly Beans packed in two bags, each with a net weight of 2 pounds.',
         price: 8.90,
@@ -69,6 +72,7 @@ module.exports.seedProduct = () => {
         reviews: []
       },
       {
+        //key:_id,
         name: 'CalJelly Belly Color Combo - Purple and Green Blendzone',
         description: 'Match the logo colors of your corporation, sports team, or school to add a nice design flair to the festivities while the stunning flavor combo of Island Punch and Green Apple delivers sweet satisfaction!',
         price: 11.90,
@@ -77,6 +81,7 @@ module.exports.seedProduct = () => {
         reviews: []
       },
       {
+        //key:_id,
         name: 'Jelly Belly 20 Flavors Jelly Beans Sampler: 8.5-Ounce Gift Box',
         description: 'Pollo might be your choice when you are in the mood for something healthy. Tender grilled chicken, creamy feta, roasted red peppers and corn are generously piled on top of our famous tomato sauce.',
         price: 10.90,
@@ -85,6 +90,7 @@ module.exports.seedProduct = () => {
         reviews: []
       },
       {
+        //key:_id,
         name: 'Brach Fiesta Malted Milk Chocolate Easter Eggs',
         description: 'Classic malted milk Easter eggs in bright white or pastel colors. Crispy malt balls are surrounded by a layer of rich milk chocolate and then covered in a candy shell. Finally, the candy shell is speckled with color to make them look like real bird eggs!',
         price: 5.90,
