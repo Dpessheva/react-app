@@ -34,7 +34,8 @@ async function login (email, password) {
 
 async function fetchStats () {
   const res = await window.fetch(host + 'stats')
-  return JSON.stringify(res)
+  //return JSON.stringify(res)
+  return await res.json();
 }
 
 async function fetchProducts () {
