@@ -34,6 +34,8 @@ class CreatePage extends Component {
 
   onChange (e) {
     this.setState({[e.target.name]: e.target.value})
+    console.log(e.target.name);
+    console.log(e.target.value);
   }
 
   onSubmit (e) {
@@ -42,8 +44,16 @@ class CreatePage extends Component {
       this.state.description, this.state.imageUrls, this.state.price)) {
       return
     }
-    this.props.createProduct(this.state.name,this.state.description,
-       this.state.imageUrls, this.state.price);
+    const candy ={
+      name:this.state.name,
+      description: this.state.description,
+      imageUrls:this.state.imageUrls,
+      price:this.state.price,
+    }
+    this.props.createProduct(candy);
+    this.props.history.push('/');
+    // this.props.createProduct(this.state.name,this.state.description,
+    //    this.state.imageUrls, this.state.price);
   
   }
 
