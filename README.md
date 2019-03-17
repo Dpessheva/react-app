@@ -3,7 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 The client side is a single page app, dynamically updating with React, using JSX, React JS and Bootstrap. The server is built on Express JS and it is using Mongo Db for storing the data. Redux is used as a state management library.
 The application consists of users,  products and orders. Each user can register, login and logout. Users can also view each products details and make orders. Admins can add, edit and delete pizza entries and approve orders.
 
-##Functionality
+## Functionality
 
 
 User Login:
