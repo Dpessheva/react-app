@@ -6,17 +6,20 @@ const router = new express.Router()
 
 router.get('/', (req, res) => {
   User
-    .count({})
+    .estimatedDocumentCount({})
     .then(users => {
       Product
-        .count({})
+        .estimatedDocumentCount({})
         .then(products => {
           res.status(200).json({
             products,
             users
           })
         })
-    }).catch(console.log(err));
+    })
+    .catch(err => {
+      console.log(err)
+    });
 })
 
 module.exports = router
