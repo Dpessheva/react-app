@@ -15,8 +15,8 @@ class EditPage extends Component {
     this.state = {
       name: '',
       description: '',
+      imageUrls: '',
       price: '',
-      imageUrls: ''
     }
 
     this.onChange = this.onChange.bind(this)
@@ -30,8 +30,8 @@ class EditPage extends Component {
       this.setState({
         name: product.name,
         description: product.description,
+        imageUrls: product.imageUrls,
         price: product.price.toFixed(2),
-        imageUrls: product.imageUrls
       })
     } else {
       this.props.fetchProducts()
@@ -44,7 +44,7 @@ class EditPage extends Component {
     } else if (nextProps.editProductSuccess) {
       this.props.redirect()
       toastr.success('Product edited successfully')
-      this.props.history.push('/store')
+      this.props.history.push('/')
     } else {
       const productId = this.props.match.params.id
       let product = this.props.products.find(p => p._id === productId)
@@ -52,8 +52,8 @@ class EditPage extends Component {
         this.setState({
           name: product.name,
           description: product.description,
+          imageUrls: product.imageUrls,
           price: product.price.toFixed(2),
-          imageUrls: product.imageUrls
         })
       }
     }
