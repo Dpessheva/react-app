@@ -36,7 +36,7 @@ class HomePage extends Component {
               <h1>Welcome to the CandyWarehouse{headingText} !</h1>
               {!isAuthenticated && <p>Your favourite candies are here. Register now and choose from our store.</p>}
               <p>
-                <Link to={secondLinkPath}>{secondLinkName}</Link>
+               <Link to={secondLinkPath}>{secondLinkName}</Link>
               </p>
             </div>
           <h2>Candies</h2>
