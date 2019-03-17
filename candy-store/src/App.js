@@ -9,6 +9,7 @@ import CreatePage from './components/create/CreatePage'
 import EditPage from './components/edit/EditPage'
 import DetailsPage from './components/details/DetailsPage'
 import CartPage from './components/cart/CartPage'
+// import ProfilePage from './components/profile/ProfilePage';
 import OrdersPage from './components/orders/OrdersPage'
 import OrderDetailsPage from './components/orders/OrderDetailsPage'
 import NotFoundPage from './components/common/NotFound/NotFoundPage'
@@ -73,6 +74,7 @@ class App extends Component {
             <Route path='/register' component={RegisterPage} />
             <Route path='/login' component={LoginPage} />
             <AdminRoute path='/admin/create' component={CreatePage} />
+            {/* <Route path="/profile" component={ProfilePage} /> */}
             <AdminRoute path='/admin/edit/:id' component={EditPage} />
             <AdminRoute path='/admin/orders' component={OrdersPage} />
             <PrivateRoute path='/details/:id' component={DetailsPage} />
