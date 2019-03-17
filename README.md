@@ -4,6 +4,8 @@ The client side is a single page app, dynamically updating with React, using JSX
 The application consists of users,  products and orders. Each user can register, login and logout. Users can also view each products details and make orders. Admins can add, edit and delete pizza entries and approve orders.
 
 ##Functionality
+
+
 User Login:
  - login in the application via email and password
 
