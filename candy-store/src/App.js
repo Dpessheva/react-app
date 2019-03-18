@@ -9,7 +9,7 @@ import CreatePage from './components/create/CreatePage'
 import EditPage from './components/edit/EditPage'
 import DetailsPage from './components/details/DetailsPage'
 import CartPage from './components/cart/CartPage'
-// import ProfilePage from './components/profile/ProfilePage';
+import storePage from './components/store/storePage';
 import OrdersPage from './components/orders/OrdersPage'
 import OrderDetailsPage from './components/orders/OrderDetailsPage'
 import NotFoundPage from './components/common/NotFound/NotFoundPage'
@@ -57,13 +57,11 @@ class App extends Component {
 
   render () {
     const isAdmin = Auth.isUserAdmin()
-    const {productsCount, usersCount} = this.props.stats
+    //const {productsCount, usersCount} = this.props.stats
 
     return (
       <div className='App'>
         <Navbar
-          products={productsCount}
-          users={usersCount}
           loggedIn={this.state.loggedIn}
           isAdmin={isAdmin}
           logout={this.logout} />
@@ -71,6 +69,7 @@ class App extends Component {
         <main>
           <Switch>
             <Route exact path='/' component={HomePage} />
+            <Route exact path='/store' component={storePage}/>
             <Route path='/register' component={RegisterPage} />
             <Route path='/login' component={LoginPage} />
             <AdminRoute path='/admin/create' component={CreatePage} />
