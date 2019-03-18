@@ -44,15 +44,7 @@ class CreatePage extends Component {
       this.state.description, this.state.imageUrls, this.state.price)) {
       return
     }
-    // const candy ={
-    //   name:this.state.name,
-    //   description: this.state.description,
-    //   imageUrls:this.state.imageUrls,
-    //   price:this.state.price,
-    // }
-    // this.props.createProduct(candy);
-    // this.props.history.push('/');
-    this.props.createProduct(this.state.name,this.state.description,
+     this.props.createProduct(this.state.name,this.state.description,
        this.state.imageUrls, this.state.price);
   
   }
