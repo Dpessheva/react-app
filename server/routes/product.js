@@ -41,7 +41,7 @@ function validateProductCreateForm (payload) {
   }
 }
 
-router.post('/create', authCheck, (req, res) => {
+router.post('/product/create', authCheck, (req, res) => {
   const productObj = req.body
   if (req.user.roles.indexOf('Admin') > -1) {
     const validationResult = validateProductCreateForm(productObj)

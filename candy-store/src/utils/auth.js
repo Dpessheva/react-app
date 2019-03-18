@@ -4,7 +4,7 @@ class Auth {
     }
   
     static getToken () {
-      return window.localStorage.getItem('authToken')
+      return localStorage.getItem('authToken')
     }
   
     static getUsername () {
