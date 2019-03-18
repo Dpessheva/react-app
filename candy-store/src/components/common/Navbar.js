@@ -7,8 +7,9 @@ const Navbar = (props) => {
   return (
     <header>
       <nav className='navbar-menu'>
-              <Link className='navbar-brand' to='/'>Candy Store</Link>
+              <Link className='navbar-brand' to='/'>CandyWarehouse</Link>
               <NavLink className='nav-link' activeClassName='active' exact to='/'>Home</NavLink>
+              <NavLink className='nav-link' to='/store'>Store</NavLink>
               {loggedIn && !isAdmin && <NavLink className='nav-link' to='/orders'>My Orders</NavLink>}
               {isAdmin && <NavLink className='nav-link' to='/admin/create'>Create New Candy</NavLink>}
               {isAdmin && <NavLink className='nav-link' to='/admin/orders/pending'>Pending Orders</NavLink>}
