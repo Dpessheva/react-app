@@ -98,7 +98,7 @@ module.exports.seedProduct = () => {
         likes: [],
         reviews: []
       },
-     
+        
     ]
 
     Product
