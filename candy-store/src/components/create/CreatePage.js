@@ -28,7 +28,7 @@ class CreatePage extends Component {
     } else if (nextProps.createProductSuccess) {
       this.props.redirect()
       toastr.success('Candy created successfully')
-      this.props.history.push('/')
+      this.props.history.push('/menu')
     }
   }
 
@@ -44,16 +44,16 @@ class CreatePage extends Component {
       this.state.description, this.state.imageUrls, this.state.price)) {
       return
     }
-    const candy ={
-      name:this.state.name,
-      description: this.state.description,
-      imageUrls:this.state.imageUrls,
-      price:this.state.price,
-    }
-    this.props.createProduct(candy);
-    this.props.history.push('/');
-    // this.props.createProduct(this.state.name,this.state.description,
-    //    this.state.imageUrls, this.state.price);
+    // const candy ={
+    //   name:this.state.name,
+    //   description: this.state.description,
+    //   imageUrls:this.state.imageUrls,
+    //   price:this.state.price,
+    // }
+    // this.props.createProduct(candy);
+    // this.props.history.push('/');
+    this.props.createProduct(this.state.name,this.state.description,
+       this.state.imageUrls, this.state.price);
   
   }
 
@@ -63,7 +63,7 @@ class CreatePage extends Component {
       this.state.description,
       this.state.imageUrls,
       this.state.price
-      )
+   )
      
 
     return (
