@@ -28,7 +28,7 @@ class CreatePage extends Component {
     } else if (nextProps.createProductSuccess) {
       this.props.redirect()
       toastr.success('Candy created successfully')
-      this.props.history.push('/menu')
+      this.props.history.push('/store')
     }
   }
 
