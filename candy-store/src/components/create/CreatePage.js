@@ -22,28 +22,32 @@ class CreatePage extends Component {
     this.onSubmit = this.onSubmit.bind(this)
   }
 
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.createProductError.hasError) {
-      toastr.error(nextProps.createProductError.message)
-    } else if (nextProps.createProductSuccess) {
-      this.props.redirect()
-      toastr.success('Candy created successfully')
-      this.props.history.push('/store')
-    }
-  }
+  // componentWillReceiveProps (nextProps) {
+  //   if (nextProps.createProductError.hasError) {
+  //     toastr.error(nextProps.createProductError.message)
+  //   } else if (nextProps.createProductSuccess) {
+  //     this.props.redirect()
+  //     toastr.success('Candy created successfully')
+  //     this.props.history.push('/store')
+  //   }
+  // }
 
   onChange (e) {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  onSubmit (e) {
+  async onSubmit (e) {
     e.preventDefault()
+    this.setState({submitting: true});
     if (!createProductValidator(this.state.name, 
       this.state.description, this.state.imageUrls, this.state.price)) {
+        toastr.error(this.props.createProductError.message)
       return
     }
-     this.props.createProduct(this.state.name,this.state.description,
-       this.state.imageUrls, this.state.price);
+    await this.props.createProduct(this.state.name,this.state.description,
+    this.state.imageUrls, this.state.price);
+    toastr.success('Candy created successfully')
+    this.props.history.push('/store')
   
   }
 
