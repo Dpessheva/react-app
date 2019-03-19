@@ -52,7 +52,7 @@ async function createProduct (data) {
     body: JSON.stringify(data)
   });
 
-  return await JSON.stringify(res)
+  return res.json()
 }
 
 async function editProduct (id, data) {
