@@ -41,25 +41,26 @@ function validateProductCreateForm (payload) {
   }
 }
 
-router.post('/product/create', authCheck, (req, res) => {
-  const productObj = req.body
+router.post('/create', authCheck, (req, res) => {
+  const productObj = req.body;
+  console.log(req.body);
   if (req.user.roles.indexOf('Admin') > -1) {
-    const validationResult = validateProductCreateForm(productObj)
+    const validationResult = validateProductCreateForm(productObj);
     if (!validationResult.success) {
       return res.status(200).json({
         success: false,
         message: validationResult.message,
-        errors: validationResult.errors
-      })
+        errors: validationResult.errors,
+        
+      });
     }
-
    Product
       .create(productObj)
       .then((createdProduct) => {
         res.status(200).json({
           success: true,
           message: 'Product added successfully.',
-          data: createdProduct
+          data: createdProduct,
         })
       })
       .catch((err) => {

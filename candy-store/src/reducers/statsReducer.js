@@ -5,7 +5,7 @@ function statsReducer (state = {usersCount: 0, productsCount: 0}, action) {
     case FETCH_STATS_SUCCESS:
       return {
         usersCount: action.data.users,
-        productsCount: action.data.products
+        productsCount: action.data.productsCount
       }
     case REGISTER_SUCCESS:
       return {
