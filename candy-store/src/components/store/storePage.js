@@ -20,7 +20,7 @@ class StorePage extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
   componentDidMount() {
-    this.props.fetchProducts()
+    this.props.fetchProducts();
   }
   render() {
     let { products, stats } = this.props
