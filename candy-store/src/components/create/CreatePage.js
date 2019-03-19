@@ -7,6 +7,7 @@ import {createProductAction} from '../../actions/productsActions'
 import {redirectAction} from '../../actions/authActions'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
+import { fetchProducts } from '../../api/remote';
 
 class CreatePage extends Component {
   constructor (props) {
@@ -47,6 +48,7 @@ class CreatePage extends Component {
     await this.props.createProduct(this.state.name,this.state.description,
     this.state.imageUrls, this.state.price);
     toastr.success('Candy created successfully')
+    this.setState({submitting: false});
     this.props.history.push('/store')
   
   }
@@ -96,7 +98,7 @@ class CreatePage extends Component {
                 value={this.state.price}
                 onChange={this.onChange}
                 valid={validObj.validPrice} />
-              <input type='submit' value='Create' />
+              <input type="submit" className="btn btn-primary" value="Create" disabled={this.state.submitting}/>
         </form>
       </div>
     )

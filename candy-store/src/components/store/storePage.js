@@ -2,22 +2,27 @@ import React, { Component } from 'react'
 import CandyCardList from '../common/Candy/CandyCardList'
 import Paginator from '../common/Paginator'
 import { connect } from 'react-redux'
+import { fetchProductsAction } from '../../actions/productsActions';
+
 
 class StorePage extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       query: ''
     }
 
     this.onChange = this.onChange.bind(this)
+
   }
 
-  onChange (e) {
+  onChange(e) {
     this.setState({ [e.target.name]: e.target.value })
   }
-
-  render () {
+  componentDidMount() {
+    this.props.fetchProducts()
+  }
+  render() {
     let { products, stats } = this.props
     products = products.sort((a, b) => a.name.localeCompare(b.name))
     let productsCount = stats.productsCount
@@ -59,12 +64,17 @@ class StorePage extends Component {
   }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     products: state.products,
     stats: state.stats
   }
 }
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchProducts: (data) => dispatch(fetchProductsAction(data)),
+  };
+}
 
 
-export default connect(mapStateToProps)(StorePage)
+export default connect(mapStateToProps, mapDispatchToProps)(StorePage)

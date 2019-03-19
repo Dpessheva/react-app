@@ -82,7 +82,8 @@ import {FETCH_DATA_SUCCESS, CREATE_PRODUCT_SUCCESS, CREATE_PRODUCT_ERROR, EDIT_P
       dispatch(endAjax())
     }
   }
-  
+
+
   function createProductAction (data) {
     return (dispatch) => {
       dispatch(beginAjax())
