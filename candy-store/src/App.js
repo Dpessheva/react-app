@@ -39,7 +39,7 @@ class App extends Component {
       this.setState({ loggedIn: true })
     }
     this.props.fetchStats()
-    this.props.fetchProducts()
+   // this.props.fetchProducts()
   }
 
   componentWillReceiveProps (nextProps) {
