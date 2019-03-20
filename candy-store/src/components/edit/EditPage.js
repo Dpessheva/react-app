@@ -44,7 +44,7 @@ class EditPage extends Component {
     } else if (nextProps.editProductSuccess) {
       this.props.redirect()
       toastr.success('Product edited successfully')
-      this.props.history.push('/')
+      this.props.history.push('/store')
     } else {
       const productId = this.props.match.params.id
       let product = this.props.products.find(p => p._id === productId)
