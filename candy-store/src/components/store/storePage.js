@@ -46,7 +46,7 @@ class StorePage extends Component {
               <input
                 className='form-control form-control-sm ml-3 w-75'
                 type='text'
-                placeholder='Search for the pizza you are looking for...'
+                placeholder='Search for the product you are looking for...'
                 aria-label='Search'
                 name='query'
                 onChange={this.onChange}

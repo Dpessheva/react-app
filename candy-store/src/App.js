@@ -57,13 +57,13 @@ class App extends Component {
 
   render () {
     const isAdmin = Auth.isUserAdmin()
-    const {productsCount, usersCount} = this.props.stats
+    //const {productsCount, usersCount} = this.props.stats
 
     return (
       <div className='App'>
         <Navbar
-          products = {productsCount}
-          users = {usersCount}
+          // products = {productsCount}
+          // users = {usersCount}
           loggedIn={this.state.loggedIn}
           isAdmin={isAdmin}
           logout={this.logout} />
@@ -93,7 +93,7 @@ class App extends Component {
 function mapStateToProps (state) {
   return {
     loginSuccess: state.login.success,
-    stats: state.stats
+    //stats: state.stats
   }
 }
 

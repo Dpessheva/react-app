@@ -40,8 +40,8 @@ class HomePage extends Component {
                <Link to={secondLinkPath}>{secondLinkName}</Link>
               </p>
             </div>
-          <h2>Top Rated</h2>
-          <CandyCardList products={candyCards} />
+          {/* <h2>Top Rated</h2>
+          <CandyCardList products={candyCards} /> */}
         </div>
       )
     }

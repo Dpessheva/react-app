@@ -27,7 +27,7 @@ class CandyCard extends Component {
   }
 
   render () {
-    const { id, name, imageUrls, description } = this.props
+    const { id, name, imageUrls, description, price } = this.props
     let footer
     if (Auth.isUserAdmin()) {
       footer = (
@@ -45,13 +45,14 @@ class CandyCard extends Component {
         </div>
       )
     }
-
+    
     return (
       <div className='card col-4'>
         <img className='card-img-top card-image' src={imageUrls} alt={name} />
         <div className='card-body'>
-          <h5 className='card-title'>{name}</h5>
+          <h5 className='card-name'>{name}</h5>
           <p className='card-text'>{description}</p>
+          <p className='card-text'>{price} euro</p>
         </div>
         {footer}
       </div>

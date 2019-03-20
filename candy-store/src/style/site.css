@@ -169,3 +169,8 @@ th {
         width: 100%;
     }
 }
+/* .col-4 {
+    max-width: 33% !important;
+    flex: 0 1;
+    justify-content: center;
+} */
