@@ -7,7 +7,7 @@ import {createProductAction} from '../../actions/productsActions'
 import {redirectAction} from '../../actions/authActions'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
-import { fetchProducts } from '../../api/remote';
+
 
 class CreatePage extends Component {
   constructor (props) {
@@ -23,16 +23,7 @@ class CreatePage extends Component {
     this.onSubmit = this.onSubmit.bind(this)
   }
 
-  // componentWillReceiveProps (nextProps) {
-  //   if (nextProps.createProductError.hasError) {
-  //     toastr.error(nextProps.createProductError.message)
-  //   } else if (nextProps.createProductSuccess) {
-  //     this.props.redirect()
-  //     toastr.success('Candy created successfully')
-  //     this.props.history.push('/store')
-  //   }
-  // }
-
+ 
   onChange (e) {
     this.setState({[e.target.name]: e.target.value})
   }

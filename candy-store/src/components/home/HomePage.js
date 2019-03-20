@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import CandyCardList from '../common/Candy/CandyCardList'
 import Auth from '../../utils/auth'
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -23,13 +22,7 @@ class HomePage extends Component {
       secondLinkName = 'Register'
       secondLinkPath = '/register'
     }
-
-    const startIndex = 0
-    const pageSize = 6
-    const candyCards = this.props.products
-      .sort((a, b) => b.likes.length - a.likes.length)
-      .slice(startIndex, pageSize)
-
+  
       return (
         <div className='welcome-wrapper'>
             <div className='welcome'>
@@ -40,8 +33,6 @@ class HomePage extends Component {
                <Link to={secondLinkPath}>{secondLinkName}</Link>
               </p>
             </div>
-          {/* <h2>Top Rated</h2>
-          <CandyCardList products={candyCards} /> */}
         </div>
       )
     }
