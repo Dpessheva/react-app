@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 The client side is a single page app, dynamically updating with React, using JSX, React JS and Bootstrap. The server is built on Express JS and it is using Mongo Db for storing the data. Redux is used as a state management library.
-The application consists of users,  products and orders. Each user can register, login and logout. Users can also view each products details and make orders. Admins can add, edit and delete pizza entries and approve orders.
+The application consists of users,  products and orders. Each user can register, login and logout. Users can also view each products details and make orders. Admins can add, edit and delete  entries and approve orders.
 
 ## Functionality
 
@@ -36,15 +36,15 @@ Cart:
  
  Product add:
  - Admin route only
- - Create a new pizza entry and save it to the database
+ - Create a new  entry and save it to the database
 
  Prooduct edit:
  - Admin route only
- - Edit existing pizza entry and save it to the database
+ - Edit an existing  entry and save it to the database
 
  Product delete:
  - Admin route only
- - Remove pizza entry from the database
+ - Remove an entry from the database
  
  Pending orders
 -  Admin route only
